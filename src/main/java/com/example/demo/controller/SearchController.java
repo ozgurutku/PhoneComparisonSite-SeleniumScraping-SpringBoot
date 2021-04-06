@@ -3,29 +3,36 @@ package com.example.demo.controller;
 import com.example.demo.service.CrawlerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 
 @Controller
 @RequestMapping("/tk")
+@SessionAttributes("id")
 public class SearchController {
 
     @Inject
     private CrawlerService crawlerService;
 
-    @ModelAttribute("userInput")
-    public String addAttribute(){
-        return new String();
-    }
+    public String id;
 
     @GetMapping("/search")
-    public String search(@ModelAttribute String userInput, Model model){
+    public String search(Model model){
+        model.addAttribute("phoneDetails",crawlerService.crawlerPhoneDetailsPage(id));
+        return "urunler.htm";
+    }
+
+    @GetMapping("/redirect")
+    public String search1(@RequestParam(value = "id") String id, Model model){
+        this.id=id;
+        return "redirect:/tk/search";
+    }
+
+    @GetMapping("/deneme")
+    public String deneme(@RequestParam String userInput, Model model){
         model.addAttribute("previewPhone",crawlerService.crawlerSearchPhone(userInput));
-        return "a.html";
+        return "kategori.htm";
     }
 
     //Todo: Post ??

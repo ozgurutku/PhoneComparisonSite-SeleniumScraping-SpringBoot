@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.inject.Inject;
@@ -24,7 +23,7 @@ public class DetailsController {
 
     @GetMapping("/details")
     public String details(@ModelAttribute String phoneLink, Model model){
-        model.addAttribute("phone",crawlerService.crawlerPhoneDetailsPage(phoneLink));
+        model.addAttribute("phoneDetails",crawlerService.crawlerPhoneDetailsPage(phoneLink));
         return "a.html";
     }
 

@@ -7,7 +7,11 @@ import com.example.demo.util.SearchUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,15 +19,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Service
+@Service("crawlerService")
 public class CrawlerService {
 
     // Telefon aramasını yapan metod
     public List<PreviewPhone> crawlerSearchPhone(String userInput){
 
-        WebDriver driver = new FirefoxDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
+        options.setBinary("/usr/bin/chromium");
+        WebDriver driver = new ChromeDriver(options);
 
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
 
         String searchUrl = SearchUtil.editInput(userInput);
         driver.get(searchUrl);
@@ -57,15 +64,25 @@ public class CrawlerService {
         return previewPhones;
     }
 
+    //Todo:null check ekle
+    // özellikle ul'lere ekle
     // telefon özelliklerini ceken metod
     public Phone crawlerPhoneDetailsPage(String url){
 
-        WebDriver driver = new FirefoxDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
+        options.setBinary("/usr/bin/chromium");
+        WebDriver driver = new ChromeDriver(options);
 
-        driver.manage().window().maximize();
-
-        // Örnegin: https://www.cimri.com/cep-telefonlari/en-ucuz-xiaomi-redmi-note-8-64gb-4gb-ram-6-3-inc-48mp-akilli-cep-telefonu-mavi-fiyatlari,330907466
-        driver.get(url);
+        //driver.manage().window().maximize();
+        if(!url.contains("https://")) {
+            String preUrl = "https://www.cimri.com/cep-telefonlari?q=";
+            System.out.println(preUrl + url);
+            // Örnegin: https://www.cimri.com/cep-telefonlari/en-ucuz-xiaomi-redmi-note-8-64gb-4gb-ram-6-3-inc-48mp-akilli-cep-telefonu-mavi-fiyatlari,330907466
+            driver.get(preUrl + url);
+        }else {
+            driver.get(url);
+        }
 
         //Telefonun detaylı özellikleri
 
@@ -77,24 +94,25 @@ public class CrawlerService {
 
         Phone phone = new Phone();
         Map<String, String> features = new HashMap<>();
-
+        if (!ulPhoneProperty.isEmpty()) {
         for(WebElement ul: ulPhoneProperty) {
-            //Başlıklar
-            List<WebElement> phoneTitle = ul.findElements(By.tagName("li"));
-            System.out.println("BAŞLIK: " + phoneTitle.get(0).getText());
-            System.out.println("*************************");
-            for(WebElement li: ul.findElements(By.tagName("li"))) {
-                //Başlıkların altındaki özellikler
-                List<WebElement> phonePropety = li.findElements(By.tagName("span"));
-                if (!phonePropety.isEmpty()) {
-                    //WebElement kullanmaya gerek yok yukarıdaki gibi kullanabilirsin veya Stringe eşitle
-                    WebElement phoneFeatureName = phonePropety.get(0);
-                    WebElement phoneFeatureValue = phonePropety.get(1);
-                    System.out.println("öz1   : " + phoneFeatureName.getText());
-                    System.out.println("öz2    : " + phoneFeatureValue.getText());
-                    System.out.println("------------------------------");
-                    features.put(phoneFeatureName.getText(),phoneFeatureValue.getText());
-                    phone.getFeatures().put(phoneTitle.get(0).getText(),features);
+                //Başlıklar
+                List<WebElement> phoneTitle = ul.findElements(By.tagName("li"));
+                System.out.println("BAŞLIK: " + phoneTitle.get(0).getText());
+                System.out.println("*************************");
+                for (WebElement li : ul.findElements(By.tagName("li"))) {
+                    //Başlıkların altındaki özellikler
+                    List<WebElement> phonePropety = li.findElements(By.tagName("span"));
+                    if (!phonePropety.isEmpty()) {
+                        //WebElement kullanmaya gerek yok yukarıdaki gibi kullanabilirsin veya Stringe eşitle
+                        WebElement phoneFeatureName = phonePropety.get(0);
+                        WebElement phoneFeatureValue = phonePropety.get(1);
+                        System.out.println("öz1   : " + phoneFeatureName.getText());
+                        System.out.println("öz2    : " + phoneFeatureValue.getText());
+                        System.out.println("------------------------------");
+                        features.put(phoneFeatureName.getText(), phoneFeatureValue.getText());
+                        phone.getFeatures().put(phoneTitle.get(0).getText(), features);
+                    }
                 }
             }
         }
@@ -139,24 +157,43 @@ public class CrawlerService {
         String phoneName = divPhoneName.findElement(By.tagName("h1")).getText();
         phone.setName(phoneName);
         System.out.println("Telefonun ismi : "+phoneName);
-        List<WebElement> phoneDescription = divPhoneName.findElement(By.tagName("ul")).findElements(By.tagName("li"));
-        //Todo: neden sonuncusu gelmiyor anlamadım
-        String description ="";
-        for(int i=0; i<phoneDescription.size() ;i++){
-            System.out.println("acıklama: "+phoneDescription.get(i).getText());
-            description = description + phoneDescription.get(i).getText();
+        if (divPhoneName.findElement(By.tagName("ul")).findElements(By.tagName("li")) != null) {
+            List<WebElement> phoneDescription = divPhoneName.findElement(By.tagName("ul")).findElements(By.tagName("li"));
+            //Todo: neden sonuncusu gelmiyor anlamadım
+            String description = "";
+            for (int i = 0; i < phoneDescription.size(); i++) {
+                System.out.println("acıklama: " + phoneDescription.get(i).getText());
+                description = description + phoneDescription.get(i).getText();
+            }
+            phone.setDescription(description);
         }
-        phone.setDescription(description);
-
         //Telefonun resimi için link
 
         //findElement için	/html/body/div[1]/div[1]/div[4]/div/div[1]/div[2]/div[1]/div[2]
         WebElement divPhoneImage = driver.findElement(By.cssSelector("#main_container > div > div.s98wa6g-0.feTYBN > div.s1a29zcm-8.ilklTg > div.s1a29zcm-9.iZWLxS > div.s98wa6g-1.fyONWW"));
-        String phoneImage = divPhoneImage.findElement(By.tagName("ul")).findElement(By.tagName("li")).findElement(By.tagName("img")).getAttribute("src");
-        System.out.println("resim linki : "+phoneImage);
-        phone.setPicture(phoneImage);
+        if (divPhoneImage.findElement(By.tagName("ul")).findElement(By.tagName("li")).findElement(By.tagName("img")).getAttribute("src") != null) {
+            String phoneImage = divPhoneImage.findElement(By.tagName("ul")).findElement(By.tagName("li")).findElement(By.tagName("img")).getAttribute("src");
+            System.out.println("resim linki : " + phoneImage);
+            phone.setPicture(phoneImage);
+        }
         driver.quit();
         return phone;
+    }
+
+    public String deneme(String url){
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
+        options.setBinary("/usr/bin/chromium");
+        WebDriver driver = new ChromeDriver(options);
+
+        // Örnegin: https://www.cimri.com/cep-telefonlari/en-ucuz-xiaomi-redmi-note-8-64gb-4gb-ram-6-3-inc-48mp-akilli-cep-telefonu-mavi-fiyatlari,330907466
+        driver.get(url);
+
+        String newUrl = driver.getCurrentUrl();
+        System.out.println(driver.getCurrentUrl());
+        driver.quit();
+        return newUrl;
     }
 
 }
