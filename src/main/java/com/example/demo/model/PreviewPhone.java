@@ -13,6 +13,9 @@ public class PreviewPhone {
     //telefonun resim urli
     private String imageUrl;
 
+    //telefonun fiyatı
+    private String price;
+
     public String getName() {
         return name;
     }
@@ -35,5 +38,13 @@ public class PreviewPhone {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }

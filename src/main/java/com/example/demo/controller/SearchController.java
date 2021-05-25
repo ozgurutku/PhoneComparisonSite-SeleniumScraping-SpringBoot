@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.CrawlerService;
+import com.example.demo.service.CrawlerServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,13 +13,13 @@ import javax.inject.Inject;
 public class SearchController {
 
     @Inject
-    private CrawlerService crawlerService;
+    private CrawlerServiceImpl crawlerServiceImpl;
 
     public String id;
 
     @GetMapping("/search")
     public String search(Model model){
-        model.addAttribute("phoneDetails",crawlerService.crawlerPhoneDetailsPage(id));
+        model.addAttribute("phoneDetails", crawlerServiceImpl.crawlerPhoneDetailsPage(id));
         return "urunler.htm";
     }
 
@@ -31,7 +31,7 @@ public class SearchController {
 
     @GetMapping("/deneme")
     public String deneme(@RequestParam String userInput, Model model){
-        model.addAttribute("previewPhone",crawlerService.crawlerSearchPhone(userInput));
+        model.addAttribute("previewPhone", crawlerServiceImpl.crawlerSearchPhone(userInput));
         return "kategori.htm";
     }
 

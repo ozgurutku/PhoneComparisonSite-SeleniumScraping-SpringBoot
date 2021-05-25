@@ -271,7 +271,6 @@ html,body {
 .slide-desc{
 	position:absolute;
 	right:5.8%;
-	padding:10px;
 }
 .slide-desc-2{
 	position:absolute;
@@ -440,7 +439,7 @@ html,body {
 }
 
 .productwrap{
-	background:#e7ebf0;
+	background:#FFFFFF;
 	width:100%;
 	padding:7px 7px 15px 7px;
 	border-radius:3px;
@@ -449,6 +448,7 @@ html,body {
 }
 .pr-img{
 	position:relative;
+	margin-bottom: 30px;
 }
 .smalltitle {
 	color:#303740;

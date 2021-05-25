@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.CrawlerService;
+import com.example.demo.service.CrawlerServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import javax.inject.Inject;
 public class HomeController {
 
     @Inject
-    private CrawlerService crawlerService;
+    private CrawlerServiceImpl crawlerServiceImpl;
 
     @ModelAttribute("userInput")
     public String addAttribute(){
@@ -24,7 +24,7 @@ public class HomeController {
     @GetMapping()
     public String homePage(Model model){
         //karışık gelmesi için boş string yolluyoruz
-        model.addAttribute("previewPhone",crawlerService.crawlerSearchPhone(""));
+        model.addAttribute("previewPhone", crawlerServiceImpl.crawlerSearchPhone(""));
         return "index.htm";
     }
 

@@ -1,21 +1,20 @@
 package com.example.demo;
 
-import com.example.demo.service.CrawlerService;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafProperties;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.servlet.ViewResolver;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
+import org.thymeleaf.templateresolver.FileTemplateResolver;
+import org.thymeleaf.templateresolver.ITemplateResolver;
 
-import java.util.List;
-import java.util.Scanner;
-
+@EnableCaching(proxyTargetClass=true)
 @SpringBootApplication
 public class DemoApplication {
 
@@ -24,6 +23,7 @@ public class DemoApplication {
 		System.setProperty("webdriver.chrome.driver", "src/main/resources/WebDrivers/chromedriver");
 	}
 
+	/*
 	@Bean
 	public ViewResolver viewResolver() {
 		ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
@@ -38,5 +38,23 @@ public class DemoApplication {
 		viewResolver.setTemplateEngine(engine);
 		return viewResolver;
 	}
+
+	 */
+
+	@Autowired
+    private ThymeleafProperties properties;
+
+    @Value("${spring.thymeleaf.templates_root:}")
+    private String templatesRoot;
+
+    @Bean
+    public ITemplateResolver defaultTemplateResolver() {
+        FileTemplateResolver resolver = new FileTemplateResolver();
+        resolver.setSuffix(properties.getSuffix());
+        resolver.setPrefix(templatesRoot);
+        resolver.setTemplateMode(properties.getMode());
+        resolver.setCacheable(properties.isCache());
+        return resolver;
+    }
 }
 

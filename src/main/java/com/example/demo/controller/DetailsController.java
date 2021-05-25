@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.CrawlerService;
+import com.example.demo.service.CrawlerServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import javax.inject.Inject;
 public class DetailsController {
 
     @Inject
-    private CrawlerService crawlerService;
+    private CrawlerServiceImpl crawlerServiceImpl;
 
     @ModelAttribute("phoneLink")
     public String addAttribute(){
@@ -23,7 +23,7 @@ public class DetailsController {
 
     @GetMapping("/details")
     public String details(@ModelAttribute String phoneLink, Model model){
-        model.addAttribute("phoneDetails",crawlerService.crawlerPhoneDetailsPage(phoneLink));
+        model.addAttribute("phoneDetails", crawlerServiceImpl.crawlerPhoneDetailsPage(phoneLink));
         return "a.html";
     }
 
