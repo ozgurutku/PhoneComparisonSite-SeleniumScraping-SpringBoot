@@ -33,176 +33,183 @@
 </head>
 
 <body>
-	<div id="wrapper">
-		<div class="header">
-			<!--Header -->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-6 col-md-4 main-logo">
-						
-						<a href="#" style="color: yellow;"><img src="images/logo1.png" alt=""></a> 
-					</div>
-				
-					<div id="navv" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="index.htm" class="active">Ana Sayfa</a>
-
-							</li>
-							<li class="dropdown menu-large">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menü</a>
-								<ul class="dropdown-menu megamenu container row">
-									<li class="col-sm-4">
-										<h4>Sayfa Şablonu</h4>
-										<ul>
-											<li><a href="index.htm">Ana Sayfa</a></li>
-											<li><a href="kategori.htm">Kategori Sayfası</a></li>
-											<li><a href="urunler.htm">Detaylı Telefon Sayfası</a></li>
-											<li><a href="iletisim.htm">İletişim Sayfası</a></li>
-										</ul>
-										<div class="dashed-nav"></div>
-									</li>
-
-
-								</ul>
-							</li>
-
-							<li><a href="hakkimizda.htm">Hakkımızda</a></li>
-							<li><a href="urunler.htm">Ürünler</a></li>
-							<li><a href="iletisim.htm">İletişim</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="dashed"></div>
-		</div>
+<div id="wrapper">
+	<div class="header">
 		<!--Header -->
-		<div class="main-nav">
-			<!--end main-nav -->
-		
-		</div>
-		<!--end main-nav -->
-
-
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<div class="page-title-wrap">
-						<div class="page-title-inner">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="bread"><a href="#">Ana Sayfa</a> &rsaquo; İletişim</div>
-									<div class="bigtitle">İletişim</div>
-								</div>
-								<div class="col-md-3 col-md-offset-5">
+				<div class="col-xs-6 col-md-4 main-logo">
 
-								</div>
+					<a href="#" style="color: yellow;"><img src="images/logo1.png" alt=""></a>
+				</div>
+
+				<div id="navv" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a class="active" th:href="@{/tk}">Ana Sayfa</a>
+
+						</li>
+						<li class="dropdown menu-large">
+							<ul class="dropdown-menu megamenu container row">
+							</ul>
+						</li>
+
+						<li><a th:href="@{/hakkimizda}">Hakkımızda</a></li>
+						<li><a th:href="@{/tk/searchInput(userInput='tum telefonlar')}">Ürünler</a></li>
+						<li><a th:href="@{/iletisim}">İletişim</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="dashed"></div>
+	</div>
+	<!--Header -->
+	<div class="main-nav">
+		<!--end main-nav -->
+
+	</div>
+	<!--end main-nav -->
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-title-wrap">
+					<div class="page-title-inner">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="bread"><a href="#">Ana Sayfa</a> &rsaquo; İletişim</div>
+								<div class="bigtitle">İletişim</div>
+							</div>
+							<div class="col-md-3 col-md-offset-5">
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="title-bg">
-				<div class="title">İletişim</div>
+		</div>
+		<div class="title-bg">
+			<div class="title">İletişim</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<p class="page-content">
+					kiyasci.com.tr </p>
+				<ul class="contact-widget">
+					<li class="fphone">+90 530 975 3423, +90 537 438 8248 <br> +90 551 018 1139</li>
+					<li class="fmobile">+90 530 975 3423<br>+90 543 377 5447</li>
+					<li class="fmail lastone">mrc.gndgr.23@gmail.com<br>mrc.gndgr.23@gmail.com</li>
+				</ul>
 			</div>
+			<div class="col-md-7 col-md-offset-1">
+				<div class="loc">
+					<div id="map_canvas"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="title-bg">
+			<div class="title">Hızlı İletişim</div>
+		</div>
+		<div class="qc">
+			<form role="form">
+				<div class="form-group">
+					<label for="name">İsim Soyisim<span>*</span></label>
+					<input type="text" class="form-control" id="name">
+				</div>
+				<div class="form-group">
+					<label for="email">E-mail<span>*</span></label>
+					<input type="email" class="form-control" id="email">
+				</div>
+				<div class="form-group">
+					<label for="text">Mesajınız<span>*</span></label>
+					<textarea class="form-control" id="text"></textarea>
+				</div>
+				<button type="submit" class="btn btn-default btn-red btn-sm">Gönder</button>
+			</form>
+
+		</div>
+
+		<div class="spacer"></div>
+
+	</div>
+
+	<div class="f-widget">
+		<!--footer Widget-->
+		<div class="container">
 			<div class="row">
+
+				<!--footer twitter widget-->
+
+				<!--footer newsletter widget-->
 				<div class="col-md-4">
-					<p class="page-content">
-						Blue Software </p>
+					<!--footer contact widget-->
+					<div class="title-widget-bg">
+						<div class="title-widget-cursive">iletişim</div>
+					</div>
 					<ul class="contact-widget">
-						<li class="fphone">+90 530 975 3423, +90 530 975 3423 <br> +90 530 975 3423</li>
-						<li class="fmobile">+90 530 975 3423<br>+90 530 975 3423</li>
+						<li class="fphone">+90 530 975 3423, +90 537 438 8248 <br> +90 551 018 1139</li>
+						<li class="fmobile">+90 530 975 3423<br>+90 543 377 5447</li>
 						<li class="fmail lastone">mrc.gndgr.23@gmail.com<br>mrc.gndgr.23@gmail.com</li>
 					</ul>
 				</div>
-				<div class="col-md-7 col-md-offset-1">
-					<div class="loc">
-						<div id="map_canvas"></div>
-					</div>
-				</div>
-			</div>
+				<!--footer contact widget-->
+				<a href="https://www.mi.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">XIAOMI</div></a>
+				<a href="https://www.samsung.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">SAMSUNG</div></a>
+				<a href="https://www.apple.com/tr/?afid=p238%7Cs4qUAJaTV-dc_mtid_187079nc38483_pcrid_516153453507_pgrid_28586581366_&cid=aos-tr-kwgo-brand--slid--bran-product-" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">APPLE</div></a>
+				<a href="https://www.lg.com/tr" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">LG</div></a>
+				<a href="https://reeder.com.tr/p13-blue.html/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">REEDER</div></a>
+				<a href="https://www.huawei.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">HUAWEI</div></a>
+				<a href="https://www.oppo.com/tr/?gclid=CjwKCAjwtdeFBhBAEiwAKOIy5y0wZinWg978Z8cAYnCGbfd9UQsptS8NjVM93FmdNabZOmDJZ7CbxhoCGRsQAvD_BwE" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">OPPO</div></a>
+				<a href="https://www.generalmobile.com/tr" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">GENERAL MOBILE</div></a>
+				<a href="https://www.hihonor.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">HONOR</div></a>
+				<a href="https://www.vestel.com.tr/?gclid=CjwKCAjwtdeFBhBAEiwAKOIy58QLFdRzAcgj6hTukrshyN9k701XHjToo6QXj8wTabejmttFnAZ8vxoCsK8QAvD_BwE&gclsrc=aw.ds" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">VESTEL</div></a>
+				<a href="https://www.infinixmobility.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">INFINIX</div></a>
+				<a href="https://www.oneplus.com/tr" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">ONEPLUS</div></a>
 
-			<div class="title-bg">
-				<div class="title">Hızlı İletişim</div>
-			</div>
-			<div class="qc">
-				<form role="form">
-					<div class="form-group">
-						<label for="name">Kullanıcı Adı<span>*</span></label>
-						<input type="text" class="form-control" id="name">
-					</div>
-					<div class="form-group">
-						<label for="email">E-mail<span>*</span></label>
-						<input type="email" class="form-control" id="email">
-					</div>
-					<div class="form-group">
-						<label for="text">Mesajınız<span>*</span></label>
-						<textarea class="form-control" id="text"></textarea>
-					</div>
-					<button type="submit" class="btn btn-default btn-red btn-sm">Gönder</button>
-				</form>
+
+
+
+
+
+
 			</div>
 			<div class="spacer"></div>
-
 		</div>
-
-		<div class="f-widget">
-			<!--footer Widget-->
-			<div class="container">
-				<div class="row">
-			
-					<!--footer twitter widget-->
-				
-					<!--footer newsletter widget-->
-					<div class="col-md-4">
-						<!--footer contact widget-->
-						<div class="title-widget-bg">
-							<div class="title-widget-cursive">iletişim</div>
-						</div>
-						<ul class="contact-widget">
-							<li class="fphone">+90 530 975 3423, +90 530 975 3423 <br> +90 530 975 3423</li>
-							<li class="fmobile">+90 530 975 3423<br>+90 530 975 3423</li>
-							<li class="fmail lastone">mrc.gndgr.23@gmail.com<br>mrc.gndgr.23@gmail.com</li>
-						</ul>
-					</div>
-					<!--footer contact widget-->
-				</div>
-				<div class="spacer"></div>
-			</div>
-		</div>
-		<!--footer Widget-->
-		<div class="footer">
-			<!--footer-->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-9">
-						<ul class="footermenu">
-							<!--footer nav-->
-							<li><a href="index-1.htm">Ana Sayfa</a></li>
-							<li><a href="iletisim.htm">Bizimle İletişime Geçin</a></li>
-						</ul>
+	</div>
+	<!--footer Widget-->
+	<div class="footer">
+		<!--footer-->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<ul class="footermenu">
 						<!--footer nav-->
-						<div class="f-credit">&copy;Tüm Hakları Saklıdır <a href="#">kiyasci.com</a></div>
-						
-					</div>
-					<div class="col-md-3">
-						<!--footer Share-->
-						<div class="followon">Bizi Takip Edin</div>
-						<div class="fsoc">
-							<a href="http://twitter.com/minimalthemes" class="ftwitter">twitter</a>
-							<a href="http://www.facebook.com/pages/Minimal-Themes/264056723661265"
-								class="ffacebook">facebook</a>
-							<a href="#" class="fflickr">flickr</a>
-							<a href="#" class="ffeed">feed</a>
-							<div class="clearfix"></div>
-						</div>
+						<li><a href="index-1.htm">Ana Sayfa</a></li>
+						<li><a href="iletisim.htm">Bizimle İletişime Geçin</a></li>
+					</ul>
+					<!--footer nav-->
+					<div class="f-credit">&copy;Tüm Hakları Saklıdır <a href="#">kiyasci.com</a></div>
+
+				</div>
+				<div class="col-md-3">
+					<!--footer Share-->
+					<div class="followon">Bizi Takip Edin</div>
+					<div class="fsoc">
+						<a href="http://twitter.com/minimalthemes" class="ftwitter">twitter</a>
+						<a href="http://www.facebook.com/pages/Minimal-Themes/264056723661265"
+						   class="ffacebook">facebook</a>
+						<a href="#" class="fflickr">flickr</a>
+						<a href="#" class="ffeed">feed</a>
 						<div class="clearfix"></div>
 					</div>
-					<!--footer Share-->
+					<div class="clearfix"></div>
 				</div>
+				<!--footer Share-->
 			</div>
 		</div>
-		<!--footer-->
-
+	</div>
+	<!--footer-->
 
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

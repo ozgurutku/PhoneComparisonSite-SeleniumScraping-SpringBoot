@@ -31,166 +31,173 @@
     <![endif]-->
 </head>
 
+
 <body>
-	<div id="wrapper">
-		<div class="header">
-			<!--Header -->
-			<div class="container">
-				<div class="row">
-					<div class="col-xs-6 col-md-4 main-logo">
-						
-						<a href="#" style="color: yellow;"><img src="images/logo1.png" alt=""></a> 
-					</div>
-					
-					<div id="navv" class="navbar-collapse collapse">
-						<ul class="nav navbar-nav">
-							<li><a href="index.htm" class="active">Ana Sayfa</a>
+<div id="wrapper">
+	<div class="header">
+		<!--Header -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 col-md-4 main-logo">
 
-							</li>
-							<li class="dropdown menu-large">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menü</a>
-								<ul class="dropdown-menu megamenu container row">
-									<li class="col-sm-4">
-										<h4>Sayfa Şablonu</h4>
-										<ul>
-											<li><a href="index.htm">Ana Sayfa</a></li>
-											<li><a href="kategori.htm">Kategori Sayfası</a></li>
-											<li><a href="urunler.htm">Detaylı Telefon Sayfası</a></li>
-											<li><a href="iletisim.htm">İletişim Sayfası</a></li>
-										</ul>
-										<div class="dashed-nav"></div>
-									</li>
+					<a href="#" style="color: yellow;"><img src="images/logo1.png" alt=""></a>
+				</div>
+
+				<div id="navv" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a class="active" th:href="@{/tk}">Ana Sayfa</a>
+
+						</li>
+						<li class="dropdown menu-large">
+							<ul class="dropdown-menu megamenu container row">
+							</ul>
+						</li>
+
+						<li><a th:href="@{/hakkimizda}">Hakkımızda</a></li>
+						<li><a th:href="@{/tk/searchInput(userInput='tum telefonlar')}">Ürünler</a></li>
+						<li><a th:href="@{/iletisim}">İletişim</a></li>
+					</ul>
+				</div>
 
 
-								</ul>
-							</li>
+				<div class="col-md-8">
+					<div class="pushright">
 
-							<li><a href="hakkimizda.htm">Hakkımızda</a></li>
-							<li><a href="urunler.htm">Ürünler</a></li>
-							<li><a href="iletisim.htm">İletişim</a></li>
-						</ul>
-					</div>
-
-
-					<div class="col-md-8">
-						<div class="pushright">
-							
-						</div>
 					</div>
 				</div>
 			</div>
-			<div class="dashed"></div>
 		</div>
-		<!--Header -->
-		<div class="main-nav">
-			<!--end main-nav -->
-			
-		</div>
+		<div class="dashed"></div>
+	</div>
+	<!--Header -->
+	<div class="main-nav">
 		<!--end main-nav -->
 
+	</div>
+	<!--end main-nav -->
 
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="page-title-wrap">
-						<div class="page-title-inner">
-							<div class="row">
-								<div class="col-md-4">
-									<div class="bread"><a href="#">Home</a> &rsaquo; Hakkımızda</div>
-									<div class="bigtitle">Hakkımızda</div>
-								</div>
-								<div class="col-md-3 col-md-offset-5">
 
-								</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="page-title-wrap">
+					<div class="page-title-inner">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="bread"><a href="#">Ana Sayfa</a> &rsaquo; Hakkımızda</div>
+								<div class="bigtitle">Hakkımızda</div>
+							</div>
+							<div class="col-md-3 col-md-offset-5">
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-9">
-					<!--Main content-->
+		</div>
+		<div class="row">
+			<div class="col-md-9">
+				<!--Main content-->
+
+				<div class="title-bg">
+					<div class="title">Biz Kimiz?...</div> <hr>
+					<p>
+						Bizler 2018 yılı Gazi Üniversitesi Teknoloji Fakültesi Bilgisayar Mühendisliğine kayıtlı Mühendislik  öğrencileriyiz. Şuan dört kişi olarak devam ettiğimiz ekibimiz sırası ile; <hr>
+					<span style="color: black; font-size: x-large; font-style: italic;" >Özgür Sadık UTKU</span> <br>
+					<span style="color: black; font-size: x-large; font-style: italic;">Miraç GÜNTOĞAR</span> <br>
+					<span style="color: black; font-size: x-large; font-style: italic;">Mehmet Ferhat ENGÜR</span> <br>
+					<span style="color: black; font-size: x-large; font-style: italic;">İsa Yasin KURU</span> <br> <hr>
+
+					Back end ve Front end kısmı olarak iki ekip halinde çalışan ekibimiz diğer çalışmalarda ise ortak hareket ederek üzerinde çalışılan uygulamayı yürütmekte ve geliştirmekte.
+
+
+
+					</p>
+					<hr>
+
 					<div class="title-bg">
 						<div class="title">Genel Bilgiler</div>
 					</div>
 					<div class="page-content">
 						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the indusy standard dummy text ever since the 1500s, when an unknown printer took a
-							galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy
-							text of the printing and typesettin industry.
-						</p>
-						<p>
-							Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-							been the indusy standard dummy text ever since the 1500s, when an unknown printer took a
-							galley of type and scrambled it to make a type specimen book. Lorem Ipsum is simply dummy
-							text of the printing and typesettin industry.
-						</p>
-					</div>
-				</div>
-				<div class="col-md-3">
-					<!--sidebar-->
-					<div class="title-bg">
+							Projemiz satışı yapılan ürünün diğer sitelerdeki fiyatlarını karşılaştıran bir web sitesi.  <br><hr>
+						Kullanıcı almak istediği ürünü sitede arattığı zaman karşısına farklı sitelerdeki satış fiyatlarını görecek karşılaştırmasını sağlayacak bir web sitesi arayüzü
+						ile karşılaşacak.İlerleyen aşamalarda aynı zamanda ürünün özelliklerini kıyaslayabileceği fonksiyonda eklemeyi düşünüyoruz. <hr>
+						Amacımız mağazalara gidip vakit kaybetmek istemeyen kullanıcıların internet üzerinden alışveriş yaparken de vakit kaybı yaşamasını önlemek için alacağı ürünün farklı farklı sitelerdeki fiyatlarının karşılaştırmasını sağlayacak. <hr>
+						Ekibimizin sürdürdüğü çalışmalar ilerleyen süreçlerde devam edecek olup güncellemeler ve iyileştirmeler anlık olarak yansıtılmaya devam edilecektir...
 
-						<!--kategori alt başlıkları-->
-					</div>
+						</p> <hr>
 
-					<div class="categorybox">
-						<ul>
-							<li><a href="#">iPhone 4S</a></li>
-							<li><a href="#">Samsung Galaxy</a></li>
-							<li><a href="#">Xiaomi"</a></li>
-							
-						</ul>
-					</div>
 
-					<div class="ads">
-						<a href="product.htm"><img src="images\sample-5.png" class="img-responsive" alt=""></a>
-					</div>
 
-					<div class="title-bg">
-						<div class="title">En Çok Satanlar</div>
-					</div>
-					<div class="best-seller">
-						<ul>
-							<li class="clearfix">
-								<a href="#"><img src="images\sample-5.png" alt="" class="img-responsive mini"></a>
-								<div class="mini-meta">
-									<a href="#" class="smalltitle2">İphone</a>
-									<p class="smallprice2">Fiyat : 5000 Tl</p>
-								</div>
-							</li>
-							<li class="clearfix">
-								<a href="#"><img src="images\sample-5.png" alt="" class="img-responsive mini"></a>
-								<div class="mini-meta">
-									<a href="#" class="smalltitle2">İphone</a>
-									<p class="smallprice2">Fiyat : 5000 Tl</p>
-								</div>
-							</li>
-							<li class="clearfix">
-								<a href="#"><img src="images\sample-5.png" alt="" class="img-responsive mini"></a>
-								<div class="mini-meta">
-									<a href="#" class="smalltitle2">İphone</a>
-									<p class="smallprice2">Fiyat : 5000 Tl</p>
-								</div>
-							</li>
-						</ul>
+
 					</div>
 
 				</div>
-				<!--sidebar-->
 			</div>
-			<div class="spacer"></div>
-		</div>
+			<div class="col-md-3">
+				<!--sidebar-->
+				<div class="title-bg">
 
-		<div class="f-widget">
+					<!--kategori alt başlıkları-->
+				</div>
+
+				<div class="categorybox">
+					<ul>
+						<li><a href="#">iPhone 4S</a></li>
+						<li><a href="#">Samsung Galaxy</a></li>
+						<li><a href="#">Xiaomi"</a></li>
+
+					</ul>
+				</div>
+
+				<div class="ads">
+					<a href="product.htm"><img src="images\sample-5.png" class="img-responsive" alt=""></a>
+				</div>
+
+				<div class="title-bg">
+					<div class="title">En Çok Satanlar</div>
+				</div>
+				<div class="best-seller">
+					<ul>
+						<li class="clearfix">
+							<a href="#"><img src="images\sample-5.png" alt="" class="img-responsive mini"></a>
+							<div class="mini-meta">
+								<a href="#" class="smalltitle2">İphone</a>
+								<p class="smallprice2">Fiyat : 5000 Tl</p>
+							</div>
+						</li>
+						<li class="clearfix">
+							<a href="#"><img src="images\sample-5.png" alt="" class="img-responsive mini"></a>
+							<div class="mini-meta">
+								<a href="#" class="smalltitle2">İphone</a>
+								<p class="smallprice2">Fiyat : 7000 Tl</p>
+							</div>
+						</li>
+						<li class="clearfix">
+							<a href="#"><img src="images\sample-5.png" alt="" class="img-responsive mini"></a>
+							<div class="mini-meta">
+								<a href="#" class="smalltitle2">İphone</a>
+								<p class="smallprice2">Fiyat : 9000 Tl</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+			<!--sidebar-->
+		</div>
+		<div class="spacer"></div>
+	</div>
+
+	<div class="f-widget">
 		<!--footer Widget-->
 		<div class="container">
 			<div class="row">
-				
+
 				<!--footer twitter widget-->
-			
+
 				<!--footer newsletter widget-->
 				<div class="col-md-4">
 					<!--footer contact widget-->
@@ -198,49 +205,66 @@
 						<div class="title-widget-cursive">iletişim</div>
 					</div>
 					<ul class="contact-widget">
-						<li class="fphone">+90 530 975 3423, +90 530 975 3423 <br> +90 530 975 3423</li>
-						<li class="fmobile">+90 530 975 3423<br>+90 530 975 3423</li>
+						<li class="fphone">+90 530 975 3423, +90 537 438 8248 <br> +90 551 018 1139</li>
+						<li class="fmobile">+90 530 975 3423<br>+90 543 377 5447</li>
 						<li class="fmail lastone">mrc.gndgr.23@gmail.com<br>mrc.gndgr.23@gmail.com</li>
 					</ul>
 				</div>
 				<!--footer contact widget-->
+
+				<!--footer contact widget-->
+				<a href="https://www.mi.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">XIAOMI</div></a>
+				<a href="https://www.samsung.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">SAMSUNG</div></a>
+				<a href="https://www.apple.com/tr/?afid=p238%7Cs4qUAJaTV-dc_mtid_187079nc38483_pcrid_516153453507_pgrid_28586581366_&cid=aos-tr-kwgo-brand--slid--bran-product-" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">APPLE</div></a>
+				<a href="https://www.lg.com/tr" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">LG</div></a>
+				<a href="https://reeder.com.tr/p13-blue.html/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">REEDER</div></a>
+				<a href="https://www.huawei.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">HUAWEI</div></a>
+				<a href="https://www.oppo.com/tr/?gclid=CjwKCAjwtdeFBhBAEiwAKOIy5y0wZinWg978Z8cAYnCGbfd9UQsptS8NjVM93FmdNabZOmDJZ7CbxhoCGRsQAvD_BwE" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">OPPO</div></a>
+				<a href="https://www.generalmobile.com/tr" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">GENERAL MOBILE</div></a>
+				<a href="https://www.hihonor.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">HONOR</div></a>
+				<a href="https://www.vestel.com.tr/?gclid=CjwKCAjwtdeFBhBAEiwAKOIy58QLFdRzAcgj6hTukrshyN9k701XHjToo6QXj8wTabejmttFnAZ8vxoCsK8QAvD_BwE&gclsrc=aw.ds" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">VESTEL</div></a>
+				<a href="https://www.infinixmobility.com/tr/" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">INFINIX</div></a>
+				<a href="https://www.oneplus.com/tr" class="btn btn-default btn-follow" style="width: 150PX; text-align: center; align-items: center; border-radius: 25px;" ><i class=""></i><div style="text-align: center;">ONEPLUS</div></a>
+
+
 			</div>
 			<div class="spacer"></div>
 		</div>
 	</div>
 	<!--footer Widget-->
 
-		<div class="footer">
-				<!--footer-->
-				<div class="container">
-					<div class="row">
-						<div class="col-md-9">
-							<ul class="footermenu">
-								<!--footer nav-->
-								<li><a href="index-1.htm">Ana Sayfa</a></li>
-								<li><a href="iletisim.htm">Bizimle İletişime Geçin</a></li>
-							</ul>
-							<!--footer nav-->
-							<div class="f-credit">&copy;Tüm Hakları Saklıdır <a href="#">Blue Software</a></div>
-							
-						</div>
-						<div class="col-md-3">
-							<!--footer Share-->
-							<div class="followon">Bizi Takip Edin</div>
-							<div class="fsoc">
-								<a href="#" class="ftwitter">twitter</a>
-								<a href="#" class="ffacebook">facebook</a>
-								<a href="#" class="fa-youtube">youtube</a>
-								<a href="#" class="fa-instagram">Instagram</a>
-								<div class="clearfix"></div>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-						<!--footer Share-->
-					</div>
+	<div class="footer">
+		<!--footer-->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<ul class="footermenu">
+						<!--footer nav-->
+						<li><a href="index-1.htm">Ana Sayfa</a></li>
+						<li><a href="iletisim.htm">Bizimle İletişime Geçin</a></li>
+					</ul>
+					<!--footer nav-->
+					<div class="f-credit">&copy;Tüm Hakları Saklıdır <a href="#">Blue Software</a></div>
+
 				</div>
+				<div class="col-md-3">
+					<!--footer Share-->
+					<div class="followon">Bizi Takip Edin</div>
+					<div class="fsoc">
+						<a href="#" class="ftwitter">twitter</a>
+						<a href="#" class="ffacebook">facebook</a>
+						<a href="#" class="fa-youtube">youtube</a>
+						<a href="#" class="fa-instagram">Instagram</a>
+						<div class="clearfix"></div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<!--footer Share-->
 			</div>
-			<!--footer-->
+		</div>
+	</div>
+	<!--footer-->
+
 
 
 

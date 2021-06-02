@@ -29,8 +29,8 @@ public class SearchController {
         return "redirect:/tk/search";
     }
 
-    @GetMapping("/deneme")
-    public String deneme(@RequestParam String userInput, Model model){
+    @GetMapping("/searchInput")
+    public String searchInput(@RequestParam String userInput, Model model){
         model.addAttribute("previewPhone", crawlerServiceImpl.crawlerSearchPhone(userInput));
         return "kategori.htm";
     }

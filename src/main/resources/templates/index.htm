@@ -52,26 +52,13 @@
 
 							</li>
 							<li class="dropdown menu-large">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menü</a>
 								<ul class="dropdown-menu megamenu container row">
-									<li class="col-sm-4">
-										<h4>Sayfa Şablonu</h4>
-										<ul>
-											<li><a href="index.htm">Ana Sayfa</a></li>
-											<li><a href="kategori.htm">Kategori Sayfası</a></li>
-											<li><a href="urunler.htm">Detaylı Telefon Sayfası</a></li>
-											<li><a href="iletisim.htm">İletişim Sayfası</a></li>
-										</ul>
-										<div class="dashed-nav"></div>
-									</li>
-
-
 								</ul>
 							</li>
 
-							<li><a href="hakkimizda.htm">Hakkımızda</a></li>
-							<li><a th:href="@{/tk/deneme(userInput='tum telefonlar')}">Ürünler</a></li>
-							<li><a href="iletisim.htm">İletişim</a></li>
+							<li><a th:href="@{/hakkimizda}">Hakkımızda</a></li>
+							<li><a th:href="@{/tk/searchInput(userInput='tum telefonlar')}">Ürünler</a></li>
+							<li><a th:href="@{/iletisim}">İletişim</a></li>
 						</ul>
 					</div>
 				</div>
@@ -90,7 +77,7 @@
 									<p>
 										Think different
 									</p>
-									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/deneme(userInput='apple')}">Apple Telefonlar</a></button>
+									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/searchInput(userInput='apple')}">Apple Telefonlar</a></button>
 								</div>
 							</div>
 							<div class="slide-type-1" style="margin-top: 35px;">
@@ -104,7 +91,7 @@
 									<p>
 										Being the most preferred mobile phone brand in the world
 									</p>
-									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/deneme(userInput='general mobile')}">General Mobile Telefonları</a></button>
+									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/searchInput(userInput='general mobile')}">General Mobile Telefonları</a></button>
 								</div>
 							</div>
 							<div class="slide-type-1" style="margin-top: 50px; margin-left: 20px;">
@@ -118,7 +105,7 @@
 									<p>
 										Make it Possible
 									</p>
-									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/deneme(userInput='huawei')}">Huawei Telefonları</a></button>
+									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/searchInput(userInput='huawei')}">Huawei Telefonları</a></button>
 								</div>
 							</div>
 							<div class="slide-type-1" style="margin-top: 35px;">
@@ -132,7 +119,7 @@
 									<p>
 										Inspire the world, Create the future
 									</p>
-									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/deneme(userInput='samsung')}">Samsung Telefonlar</a></button>
+									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/searchInput(userInput='samsung')}">Samsung Telefonlar</a></button>
 								</div>
 							</div>
 							<div class="slide-type-1" style="margin-top: 50px; margin-left: 20px;">
@@ -146,7 +133,7 @@
 									<p>
 										Excelsior
 									</p>
-									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/deneme(userInput='xiamoi')}">Xiamoi Telefonları</a></button>
+									<a class="btn btn-default btn-red btn-lg" style="color: #FFFFFF" th:href="@{/tk/searchInput(userInput='xiamoi')}">Xiamoi Telefonları</a></button>
 								</div>
 							</div>
 							<div class="slide-type-1" style="margin-top: 50px; margin-left: 20px;">
@@ -206,7 +193,7 @@
 		
 						<nav class="navbar navbar-light bg-light">
 							<div class="container-fluid">
-								<form class="d-flex" th:action="@{/tk/deneme}">
+								<form class="d-flex" th:action="@{/tk/searchInput}">
 									<input class="form-control me-2" type="search" placeholder="Telefon Arama"
 										aria-label="Search" name="userInput">
 									<button class="btn btn-primary" style="align-items: center;width: 180px; top:50px; position: absolute;"

@@ -45,29 +45,9 @@
 					<div id="navv" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
 							<li><a th:href="@{/tk}" class="active">Ana Sayfa</a>
-
-							</li>
-							<li class="dropdown menu-large">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Mega Menü</a>
-								<ul class="dropdown-menu megamenu container row">
-									<li class="col-sm-4">
-										<h4>Sayfa Şablonu</h4>
-										<ul>
-											<li><a href="index.htm">Ana Sayfa</a></li>
-											<li><a href="kategori.htm">Kategori Sayfası</a></li>
-											<li><a href="urunler.htm">Detaylı Telefon Sayfası</a></li>
-											<li><a href="iletisim.htm">İletişim Sayfası</a></li>
-										</ul>
-										<div class="dashed-nav"></div>
-									</li>
-
-
-								</ul>
-							</li>
-
-							<li><a href="hakkimizda.htm">Hakkımızda</a></li>
-							<li><a th:href="@{/tk/deneme(userInput='tum telefonlar')}">Ürünler</a></li>
-							<li><a href="iletisim.htm">İletişim</a></li>
+							<li><a th:href="@{/hakkimizda}">Hakkımızda</a></li>
+							<li><a th:href="@{/tk/searchInput(userInput='tum telefonlar')}">Ürünler</a></li>
+							<li><a th:href="@{/iletisim}">İletişim</a></li>
 						</ul>
 					</div>
 				</div>
@@ -150,23 +130,23 @@
 							<tbody>
 							<tr th:each="phone: ${phoneDetails.otherSites}">
 								<td>
-									<!--th:href="${@crawlerService.deneme(phone.siteLink)}" -->
+
 									<a>
-										<img style="margin-top: 64px" th:src="${phone.imageLink}">
+										<img style="margin-top: 64px" th:href="${@crawlerService.crawlerPhoneOtherSites(phone.siteLink)}" th:src="${phone.imageLink}">
 									</a>
 								</td>
 								<td>
-									<!--<a th:href="${@crawlerService.deneme(phone.siteLink)}">-->
+									<!--<a th:href="${@crawlerService.crawlerPhoneOtherSites(phone.siteLink)}">-->
 									<h2 th:text="${phone.description}"></h2>
 									</a>
 								</td>
 								<td>
-									<!--<a th:href="${@crawlerService.deneme(phone.siteLink)}">-->
+									<!--<a th:href="${@crawlerService.crawlerPhoneOtherSites(phone.siteLink)}">-->
 									<h2 th:text="${phone.cargo}"></h2>
 									</a>
 								</td>
 								<td>
-									<!--<a th:href="${@crawlerService.deneme(phone.siteLink)}">-->
+									<!--<a th:href="${@crawlerService.crawlerPhoneOtherSites(phone.siteLink)}">-->
 									<h2 th:text="${phone.price}"></h2>
 									</a>
 								</td>

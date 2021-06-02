@@ -191,7 +191,7 @@ public class CrawlerServiceImpl implements CrawlerService {
     }
 
     @Cacheable("digerMağazalar")
-    public String deneme(String url){
+    public String crawlerPhoneOtherSites(String url){
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors","--disable-extensions","--no-sandbox","--disable-dev-shm-usage");
